@@ -1,37 +1,72 @@
-## Welcome to GitHub Pages
+# Tag-accessed Memory for Genetic Programming
 
-You can use the [editor on GitHub](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This repository is associated with our 2019 GECCO extended abstract submission,
+Tag-accessed Memory for Genetic Programming.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**Navigation**
 
-### Markdown
+<!-- TOC -->
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- [Project Overview](#project-overview)
+  - [Tag-accessed Memory](#tag-accessed-memory)
+  - [Contribution Authors](#contribution-authors)
+- [Repository Guide](#repository-guide)
+- [Running the Experiment](#running-the-experiment)
 
-```markdown
-Syntax highlighted code block
+<!-- /TOC -->
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Project Overview
 
-1. Numbered
-2. List
+We present an early exploration of tag-accessed memory for genetic programming.
 
-**Bold** and _Italic_ and `Code` text
+### Tag-accessed Memory
 
-[Link](url) and ![Image](src)
-```
+Tags are evolvable labels that give genetic programs a flexible mechanism for specification.
+Tag-based naming schemes have been demonstrated for labeling and referencing program
+modules [citations].
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+We continue to expand the use of tags in GP by incorporating tag-based referencing
+into the memory model of a simple linear GP representation.
+In this study, memory comprises 16 statically tagged memory registers, and instructions
+use tag-based referencing to refer to positions in memory.
+Programs our simple representation are linear sequences of instructions, and each
+instruction has three tag-based arguments, which may modify the instruction's
+behavior. Below, we provide a visual example, contrasting traditional direct-indexed
+memory access and tag-based memory access.
 
-### Jekyll Themes
+![tag-accessed memory example](./media/memory-access-cartoon.png)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+In the example above, both programs have identical behavior: requesting input,
+setting the second register to the terminal value '2', multiplying the input by
+2, and outputting the result.
 
-### Support or Contact
+### Contribution Authors
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- [Alexander Lalejini](lalejini.com)
+- [Charles  Ofria](https://scholar.google.com/citations?user=nYLuKDAAAAAJ&hl=en)
+
+## Repository Guide
+
+- [analysis/](./analysis/)
+  - Contains R scripts used for data analyses and generating graphs.
+- [data/](./data/)
+  - Contains raw data for preliminary and published experiments as well as the
+    training and testing examples used for the programming synthesis benchmark 
+    problems (taken from [Tom Helmuth's example repository](https://github.com/thelmuth/Program-Synthesis-Benchmark-Data)).
+- [docs/](./docs/)
+  - Contains miscellaneous documentation associated with this work.
+- [experiment/](./experiment/)
+  - Contains the source code (C++) for our simple linear GP representation and for
+    running the experiments discussed in our contribution.
+- [hpcc/](./hpcc/)
+  - Contains scripts used to submit experiment jobs to MSU's HPCC.
+- [media/](./media/)
+  - Contains media (images) associated with this work.
+- [scripts/](./scripts/)
+  - Contains utility scripts used for managing experiments on the HPCC and for aggregating
+    and manipulating experiment data.
+
+## Running the Experiment
+
+..todo..
