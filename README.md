@@ -1,5 +1,7 @@
 # Tag-accessed Memory for Genetic Programming
 
+[![DOI](https://zenodo.org/badge/167870191.svg)](https://zenodo.org/badge/latestdoi/167870191)
+
 This repository is associated with our 2019 GECCO extended abstract submission,
 Tag-accessed Memory for Genetic Programming.
 
