@@ -7,14 +7,21 @@ Tag-accessed Memory for Genetic Programming.
 
 <!-- TOC -->
 
+- [Todo](#todo)
 - [Project Overview](#project-overview)
   - [Tag-accessed Memory](#tag-accessed-memory)
   - [Contribution Authors](#contribution-authors)
 - [Repository Guide](#repository-guide)
 - [Running the Experiment](#running-the-experiment)
+- [Data Analyses](#data-analyses)
 
 <!-- /TOC -->
 
+## Todo
+
+- [ ] Document on experiment configurations
+- [ ] Describe our experimental design
+- [ ] Instruction set documentation
 
 ## Project Overview
 
@@ -69,4 +76,12 @@ setting the second register to the terminal value '2', multiplying the input by
 
 ## Running the Experiment
 
-..todo..
+**Dependencies**
+
+- Empirical
+- csv-parser
+
+## Data Analyses
+
+Our analyses were done in R [cite]. [Find them here.](./analysis/tag-mem-analysis.html)
+
