@@ -1,0 +1,8 @@
+treatment,problem,arg_type,arg_mut_rate,mem_searching,solutions_found,total_runs,min_solution_size
+PROBLEM_for-loop-index__ARGS_NUM_ONLY__MEM_SEARCH_0__MUT_005,for-loop-index,Numeric,0.005,0,5,200,19
+PROBLEM_for-loop-index__ARGS_TAG_ONLY__MEM_SEARCH_0__MUT_005,for-loop-index,Tag-based,0.005,0,11,200,10
+PROBLEM_grade__ARGS_NUM_ONLY__MEM_SEARCH_0__MUT_005,grade,Numeric,0.005,0,12,200,107
+PROBLEM_grade__ARGS_TAG_ONLY__MEM_SEARCH_0__MUT_005,grade,Tag-based,0.005,0,12,200,102
+PROBLEM_number-io__ARGS_NUM_ONLY__MEM_SEARCH_0__MUT_005,number-io,Numeric,0.005,0,144,200,11
+PROBLEM_number-io__ARGS_TAG_ONLY__MEM_SEARCH_0__MUT_005,number-io,Tag-based,0.005,0,198,200,11
+PROBLEM_smallest__ARGS_TAG_ONLY__MEM_SEARCH_0__MUT_005,smallest,Tag-based,0.005,0,1,8,21
