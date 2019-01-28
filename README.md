@@ -24,6 +24,7 @@ Tag-accessed Memory for Genetic Programming.
 - [ ] Document on experiment configurations
 - [ ] Describe our experimental design
 - [ ] Instruction set documentation
+- [ ] Add copy of paper to repository
 
 ## Project Overview
 
@@ -85,5 +86,5 @@ setting the second register to the terminal value '2', multiplying the input by
 
 ## Data Analyses
 
-Our analyses were done in R [cite]. [Find them here.](./analysis/tag-mem-analysis.html)
+Our analyses were done in R [cite]. [Find them here.](http://lalejini.com/GECCO-2019-tag-accessed-memory/analysis/tag-mem-analysis.html)
 
