@@ -55,22 +55,22 @@ setting the second register to the terminal value '2', multiplying the input by
 
 ## Repository Guide
 
-- [analysis/](./analysis/)
+- [analysis/](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/tree/master/analysis/)
   - Contains R scripts used for data analyses and generating graphs.
-- [data/](./data/)
+- [data/](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/tree/master/data/)
   - Contains raw data for preliminary and published experiments as well as the
     training and testing examples used for the programming synthesis benchmark 
     problems (taken from [Tom Helmuth's example repository](https://github.com/thelmuth/Program-Synthesis-Benchmark-Data)).
-- [docs/](./docs/)
+- [docs/](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/tree/master/docs/)
   - Contains miscellaneous documentation associated with this work.
-- [experiment/](./experiment/)
+- [experiment/](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/tree/master/experiment/)
   - Contains the source code (C++) for our simple linear GP representation and for
     running the experiments discussed in our contribution.
-- [hpcc/](./hpcc/)
+- [hpcc/](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/tree/master/hpcc/)
   - Contains scripts used to submit experiment jobs to MSU's HPCC.
-- [media/](./media/)
+- [media/](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/tree/master/media/)
   - Contains media (images) associated with this work.
-- [scripts/](./scripts/)
+- [scripts/](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/tree/master/scripts/)
   - Contains utility scripts used for managing experiments on the HPCC and for aggregating
     and manipulating experiment data.
 
