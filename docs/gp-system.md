@@ -1,16 +1,19 @@
 # Genetic Programming System
 
 Here, we provide a more detailed description of the linear GP system we used in
-this work.
+this work. This document also reports configuration details used in this work.
+Our exact configuration files along with experiment source code can be found in
+our online GitHub repository (LINK ANONYMIZED FOR REVIEW).
 
 **Contents**
 
 <!-- TOC -->
 
-- [Programs](#programs)
-- [Virtual CPU](#virtual-cpu)
-- [Tag-accessed Memory](#tag-accessed-memory)
-- [Direct-indexed Memory](#direct-indexed-memory)
+- [GP Representation](#gp-representation)
+  - [Programs](#programs)
+  - [Virtual CPU](#virtual-cpu)
+  - [Tag-accessed Memory](#tag-accessed-memory)
+  - [Direct-indexed Memory](#direct-indexed-memory)
 - [Instruction Set](#instruction-set)
   - [Default Instructions](#default-instructions)
   - [Problem-specific Instructions](#problem-specific-instructions)
@@ -19,23 +22,32 @@ this work.
     - [Problem - Grade](#problem---grade)
     - [Problem - Median](#problem---median)
     - [Problem - Smallest](#problem---smallest)
+- [Experiment Configuration Details](#experiment-configuration-details)
+  - [Configuration Details - Number IO](#configuration-details---number-io)
+  - [Configuration Details - For loop index](#configuration-details---for-loop-index)
+  - [Configuration Details - Grade](#configuration-details---grade)
+  - [Configuration Details - Median](#configuration-details---median)
+  - [Configuration Details - Smallest](#configuration-details---smallest)
+- [References](#references)
 
 <!-- /TOC -->
 
-## Programs
+## GP Representation
+
+### Programs
 
 Programs are linear sequences of instructions, and each instruction has three
 arguments that may modify its behavior. Our instruction set supports basic computations
 (_e.g._, addition, subtraction, multiplication, _etc._) and allows programs to
 control the flow of execution (_e.g._, conditional branching, looping, _etc._).
 
-## Virtual CPU
+### Virtual CPU
 
 Programs are executed in the context of a simple virtual CPU, which manages the
 flow of execution (_e.g._, looping, current instruction, _etc._) and gives programs
 access to 16 memory registers used for storing data and for performing computations.
 
-## Tag-accessed Memory
+### Tag-accessed Memory
 
 Many traditional GP systems that give genetic programs access to memory (_e.g._, 
 indexable memory registers) use rigid naming schemes where memory is 
@@ -82,7 +94,7 @@ positions.
 In this work, we mutated all tag arguments at a per-bit rate (of 0.005).
 The tags on memory registers never changed.
 
-## Direct-indexed Memory
+### Direct-indexed Memory
 
 Direct-indexed memory is the traditional form of memory access in linear GP.
 Each program instruction has three numeric arguments (0 through 15) that are used
@@ -212,3 +224,75 @@ Instructions that would produce undefined behavior (e.g., division by zero) are 
 | `LoadNum3` | 1 | Reg[0] = input 3|
 | `LoadNum4` | 1 | Reg[0] = input 4|
 | `SubmitNum` | 1 | Output Reg[0] |
+
+## Experiment Configuration Details
+
+Here, we discuss only the configuration details for the experiments reported in
+our extended abstract. For details on preliminary experiments, see our data
+analysis supplemental material.
+
+We used the lexicase parent selection algorithm to solve five problems from Helmuth
+and Spector's general program synthesis benchmark suite (Helmuth and Spector, 2015): 
+number IO, smallest, median, grade, and for loop index. 
+We used identical training and testing sets as in (Helmuth and Spector, 2015).
+Refer to (Helmuth and Spector, 2015) for more details about these problems.
+
+For each problem, we evolved 200 replicate populations of 512 individuals.
+In all but the number IO problem, we evolved programs for 300 generations.
+Because number IO is substantially easier than each of the other problems (Helmuth
+and Spector, 2015), we only evolved these programs for 100 generations.
+
+We propagated programs asexually and applied mutations to offspring.
+We applied single-instruction insertions, deletions, and substitutions at a per-instruction rate of 0.005 each and multi-instruction sequence duplications and deletions at a per-program rate of 0.05.
+We mutated tag-based arguments at a per-bit rate of 0.005 and numeric arguments at a per-argument rate of 0.005.
+
+Each problem is defined by a set of test cases in which programs are given specified 
+input data and are scored on how close their output is to the correct output; depending 
+on the problem, we measured scores either on a gradient or on a binary pass-fail
+basis. 
+During an evaluation, we limited the total number of instructions a program could
+execute; this limit varied by problem. 
+Programs were not required to stop on their own as long as they output their results
+before reaching their execution limit.
+
+Below we give the configuration details specific to each problem.
+
+### Configuration Details - Number IO
+
+- Maximum allowed program length: 32
+- Maximum number of instruction-execution steps: 32
+- Test scores were measured on a pass/fail basis.
+- Generations: 100
+
+### Configuration Details - For loop index
+
+- Maximum allowed program length: 128
+- Maximum number of instruction-execution steps: 256
+- Test scores were measured on a gradient, using the Levenshtein distance between
+  the program's output and the correct output sequence.
+- Generations: 300
+
+### Configuration Details - Grade
+
+- Maximum allowed program length: 128
+- Maximum number of instruction-execution steps: 128
+- Test scores were measured on a pass/fail basis.
+- Generations: 300
+
+### Configuration Details - Median
+
+- Maximum allowed program length: 64
+- Maximum number of instruction-execution steps: 64
+- Test scores were measured on a pass/fail basis.
+- Generations: 300
+
+### Configuration Details - Smallest
+
+- Maximum allowed program length: 64
+- Maximum number of instruction-execution steps: 64
+- Test scores were measured on a pass/fail basis.
+- Generations: 300
+
+## References
+
+Helmuth, T., & Spector, L. (2015). General Program Synthesis Benchmark Suite. In Proceedings of the 2015 on Genetic and Evolutionary Computation Conference - GECCO ’15 (pp. 1039–1046). New York, New York, USA: ACM Press. https://doi.org/10.1145/2739480.2754769
