@@ -1,5 +1,10 @@
 # Genetic Programming System
 
+Here, we provide a more detailed description of the linear GP system we used in
+this work.
+
+**Contents**
+
 <!-- TOC -->
 
 - [Programs](#programs)
@@ -16,9 +21,6 @@
     - [Problem - Smallest](#problem---smallest)
 
 <!-- /TOC -->
-
-Here, we provide a more detailed description of the linear GP system we used in
-this work.
 
 ## Programs
 
