@@ -114,7 +114,8 @@ Note:
 
 Instructions that would produce undefined behavior (e.g., division by zero) are treated as no operations.
 
-| Instruction | # Arguments Used | Description |
+
+| Instruction | Arguments Used | Description |
 | :--- | :---: | :--- |
 | `Add` | 3 | Reg[2] = Reg[0] + Reg[1] |
 | `Sub` | 3 | Reg[2] = Reg[0] - Reg[1] |
@@ -132,14 +133,14 @@ Instructions that would produce undefined behavior (e.g., division by zero) are 
 | `Inc` | 1 | Reg[0] = Reg[0] + 1 |
 | `Dec` | 1 | Reg[0] = Reg[0] - 1 |
 | `CopyMem` | 2 | Reg[0] = Reg[1] |
-| `SwapMem` | 2 | Swap(Reg[0], Reg[1]) |
-| `If`  | 1 | If Reg[0] != 0, proceed. Otherwise skip to the next `Close` or EOP (whichever comes first). |
-| `IfNot` | 1 | If Reg[0] == 0, proceed. Otherwise skip to the next `Close` or EOP (whichever comes first). |
-| `While` | 1 | While Reg[0] != 0, loop. Otherwise skip to next `Close` or EOP (whichever comes first). |
-| `Countdown` | 1 | While Reg[0] != 0, decrement Reg[0] and loop. Otherwise skip to next `Close` or EOP (whichever comes first). |
-| `Close` | 0 | Indicate the end of a control block of code (e.g., loop, conditional). |
-| `Break` | 0 | Break out of current control flow (e.g., loop). |
-| `Return`  | 0 | Return from program execution (exit program execution). |
+| `SwapMem` | 2   | Swap(Reg[0], Reg[1]) |
+| `If`      | 1   | If Reg[0] != 0, proceed. Otherwise skip to the next `Close` or EOP. |
+| `IfNot` | 1     | If Reg[0] == 0, proceed. Otherwise skip to the next `Close` or EOP. |
+| `While` | 1     | While Reg[0] != 0, loop. Otherwise skip to next `Close` or EOP. |
+| `Countdown` | 1 | Same as `While`, but decrement Reg[0] if Reg[0] != 0. |
+| `Close` | 0     | Indicate the end of a control block of code (e.g., loop, if). |
+| `Break` | 0     | Break out of current control flow (e.g., loop). |
+| `Return`  | 0    | Return from program execution (exit program execution). |
 | `Set-0` | 1 | Reg[0] = 0|
 | `Set-1` | 1 | Reg[0] = 1|
 | `Set-2` | 1 | Reg[0] = 2|
@@ -156,7 +157,7 @@ Instructions that would produce undefined behavior (e.g., division by zero) are 
 | `Set-13` | 1 | Reg[0] = 13 |
 | `Set-14` | 1 | Reg[0] = 14 |
 | `Set-15` | 1 | Reg[0] = 15 |
-| `Set-16` | 1 | Reg[0] = 16 |
+| `Set-16` | 1 | Reg[0] = 16 | 
 
 ### Problem-specific Instructions
 
