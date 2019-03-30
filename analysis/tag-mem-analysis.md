@@ -41,7 +41,7 @@ library(cowplot)  # (Wilke, 2018)
 
 Here, we load data from both our preliminary experiments and our second set of final experiments.
 
-Set path information. Note, this path information is accurate for the directory structure used in our Git repository (LINK ANONYMIZED).
+Set path information. Note, this path information is accurate for the directory structure used in our Git repository: [https://github.com/amlalejini/GECCO-2019-tag-accessed-memory]().
 
 ```r
 # Load data from preliminary runs.
@@ -146,11 +146,11 @@ ggplot(data = filter(prog_solutions_u300_summary,
                    fill=arg_type,
                    label=solutions_found)) +
     geom_bar(stat="identity", position="dodge") +
-    scale_x_discrete(labels=c("Number IO*",
-                              "Smallest*",
-                              "Median*",
-                              "Grade*",
-                              "For Loop Index*")) +
+    scale_x_discrete(labels=c("Number IO",
+                              "Smallest",
+                              "Median",
+                              "Grade",
+                              "For Loop Index")) +
     xlab("Problem") + 
     ylab("Successful Runs")  + 
     ylim(0, 200) +
@@ -158,7 +158,7 @@ ggplot(data = filter(prog_solutions_u300_summary,
     geom_text(position=position_dodge(width=0.9), vjust=-0.1) +
     theme(axis.text.x = element_text(angle=30, vjust=0.5)) +
     theme(legend.position = c(0.78, 0.9)) +
-    ggsave("successful_runs.pdf")
+    ggsave("successful_runs.png")
 ```
 
 ```
