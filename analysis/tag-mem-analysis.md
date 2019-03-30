@@ -41,7 +41,7 @@ library(cowplot)  # (Wilke, 2018)
 
 Here, we load data from both our preliminary experiments and our second set of final experiments.
 
-Set path information. Note, this path information is accurate for the directory structure used in our Git repository: [https://github.com/amlalejini/GECCO-2019-tag-accessed-memory]().
+Set path information. Note, this path information is accurate for the directory structure used in our Git repository: [https://github.com/amlalejini/GECCO-2019-tag-accessed-memory](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory).
 
 ```r
 # Load data from preliminary runs.
