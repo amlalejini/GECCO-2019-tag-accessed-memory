@@ -1,6 +1,6 @@
 # Genetic Programming System
 
-Here, we provide a more detailed description of the linear GP system we used in this work. This document also reports configuration details used in this work. Our exact configuration files along with experiment source code can be found in our online GitHub repository (LINK ANONYMIZED FOR REVIEW).
+Here, we provide a more detailed description of the linear GP system we used in this work. This document also reports configuration details used in this work. Our exact configuration files along with experiment source code can be found in our online GitHub repository: [https://github.com/amlalejini/GECCO-2019-tag-accessed-memory](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory).
 
 **Contents**
 
@@ -33,7 +33,7 @@ Programs are linear sequences of instructions, and each instruction has three ar
 
 ### Virtual CPU
 
-Programs are executed in the context of a simple virtual CPU, which manages the flow of execution (_e.g._, looping, current instruction, _etc._) and gives programs access to 16 memory registers used for storing data and for performing computations. 
+Programs are executed in the context of a simple virtual CPU, which manages the flow of execution (_e.g._, looping, current instruction, _etc._) and gives programs access to 16 memory registers used for storing data and for performing computations.
 
 ### Tag-accessed Memory
 
@@ -82,7 +82,7 @@ Note:
 
 - EOP: End of program
 - Reg: Register
-- Reg[0] indicates the value at the register specified by an instruction's first _argument_ (either tag-based or numeric), Reg[1] indicates the value at the register specified by an instruction's second argument, and Reg[2] indicates the value at the register specified by the instruction's third argument. 
+- Reg[0] indicates the value at the register specified by an instruction's first _argument_ (either tag-based or numeric), Reg[1] indicates the value at the register specified by an instruction's second argument, and Reg[2] indicates the value at the register specified by the instruction's third argument.
 - Reg[0], Reg[1], _etc_: Register 0, Register 1, _etc._
 
 Instructions that would produce undefined behavior (e.g., division by zero) are treated as no operations.
@@ -130,7 +130,7 @@ Instructions that would produce undefined behavior (e.g., division by zero) are 
 | `Set-13` | 1 | Reg[0] = 13 |
 | `Set-14` | 1 | Reg[0] = 14 |
 | `Set-15` | 1 | Reg[0] = 15 |
-| `Set-16` | 1 | Reg[0] = 16 | 
+| `Set-16` | 1 | Reg[0] = 16 |
 
 ### Problem-specific Instructions
 
@@ -188,7 +188,7 @@ Instructions that would produce undefined behavior (e.g., division by zero) are 
 
 ## Experiment Configuration Details
 
-Here, we discuss only the configuration details for the experiments reported in our extended abstract. For details on preliminary experiments, see our data analysis supplemental material. 
+Here, we discuss only the configuration details for the experiments reported in our extended abstract. For details on preliminary experiments, see our data analysis supplemental material.
 
 We used the lexicase parent selection algorithm to solve five problems from Helmuth and Spector's general program synthesis benchmark suite (Helmuth and Spector, 2015):  number IO, smallest, median, grade, and for loop index. We used identical training and testing sets as in (Helmuth and Spector, 2015). Refer to (Helmuth and Spector, 2015) for more details about these problems.
 
