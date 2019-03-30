@@ -5,26 +5,21 @@
 This repository is associated with our 2019 GECCO extended abstract submission,
 Tag-accessed Memory for Genetic Programming.
 
+Feel free to contact us with questions or file an issue on this repository if something
+isn't clear!
+
 **Navigation**
 
 <!-- TOC -->
 
-- [Todo](#todo)
 - [Project Overview](#project-overview)
   - [Tag-accessed Memory](#tag-accessed-memory)
   - [Contribution Authors](#contribution-authors)
 - [Repository Guide](#repository-guide)
-- [Running the Experiment](#running-the-experiment)
-- [Data Analyses](#data-analyses)
+- [Supplemental Material](#supplemental-material)
+- [References](#references)
 
 <!-- /TOC -->
-
-## Todo
-
-- [ ] Document on experiment configurations
-- [ ] Describe our experimental design
-- [ ] Instruction set documentation
-- [ ] Add copy of paper to repository
 
 ## Project Overview
 
@@ -34,7 +29,7 @@ We present an early exploration of tag-accessed memory for genetic programming.
 
 Tags are evolvable labels that give genetic programs a flexible mechanism for specification.
 Tag-based naming schemes have been demonstrated for labeling and referencing program
-modules [citations].
+modules (Spector, 2011; Lalejini and Ofria, 2018).
 
 We continue to expand the use of tags in GP by incorporating tag-based referencing
 into the memory model of a simple linear GP representation.
@@ -53,7 +48,7 @@ setting the second register to the terminal value '2', multiplying the input by
 
 ### Contribution Authors
 
-- [Alexander Lalejini](lalejini.com)
+- [Alexander Lalejini](https://lalejini.com)
 - [Charles  Ofria](https://scholar.google.com/citations?user=nYLuKDAAAAAJ&hl=en)
 
 ## Repository Guide
@@ -62,7 +57,7 @@ setting the second register to the terminal value '2', multiplying the input by
   - Contains R scripts used for data analyses and generating graphs.
 - [data/](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/tree/master/data/)
   - Contains raw data for preliminary and published experiments as well as the
-    training and testing examples used for the programming synthesis benchmark 
+    training and testing examples used for the programming synthesis benchmark
     problems (taken from [Tom Helmuth's example repository](https://github.com/thelmuth/Program-Synthesis-Benchmark-Data)).
 - [docs/](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory/tree/master/docs/)
   - Contains miscellaneous documentation associated with this work.
@@ -77,14 +72,18 @@ setting the second register to the terminal value '2', multiplying the input by
   - Contains utility scripts used for managing experiments on the HPCC and for aggregating
     and manipulating experiment data.
 
-## Running the Experiment
+## Supplemental Material
 
-**Dependencies**
+- Experiment configuration and GP system details: [./docs/gp-system.md](./docs/gp-system.md)
+- Data analysis: Our analyses were done in R (R Core Team, 2016).
+    - Find a webpage (generated with R markdown) here: [http://lalejini.com/GECCO-2019-tag-accessed-memory/analysis/tag-mem-analysis.html](http://lalejini.com/GECCO-2019-tag-accessed-memory/analysis/tag-mem-analysis.html)
+    - Or, the Rmd file is here: [./analysis/tag-mem-analysis.Rmd](./analysis/tag-mem-analysis.Rmd)
 
-- Empirical
-- csv-parser
+## References
 
-## Data Analyses
+Lalejini, A., & Ofria, C. (2018). Evolving event-driven programs with SignalGP. In Proceedings of the Genetic and Evolutionary Computation Conference on - GECCO ’18 (pp. 1135–1142). New York, New York, USA: ACM Press. https://doi.org/10.1145/3205455.3205523
 
-Our analyses were done in R [cite]. [Find them here.](http://lalejini.com/GECCO-2019-tag-accessed-memory/analysis/tag-mem-analysis.html)
+R Core Team (2016). R: A language and environment for statistical computing. R Foundation for
+Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
 
+Spector, L., Martin, B., Harrington, K., & Helmuth, T. (2011). Tag-based modules in genetic programming. In Proceedings of the 13th annual conference on Genetic and evolutionary computation - GECCO ’11 (p. 1419). New York, New York, USA: ACM Press. https://doi.org/10.1145/2001576.2001767
