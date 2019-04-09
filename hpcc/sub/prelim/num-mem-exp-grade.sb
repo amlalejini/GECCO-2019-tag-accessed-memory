@@ -3,8 +3,8 @@
 
 #SBATCH --time=8:00:00            # limit of wall clock time - how long the job will run (same as -t)
 #SBATCH --array=1-360
-#SBATCH --mem=4G                   # memory required per node - amount of memory (in bytes)
-#SBATCH --job-name tmem-grd        # you can give your job a name for easier identification (same as -J)
+#SBATCH --mem=4G                    # memory required per node - amount of memory (in bytes)
+#SBATCH --job-name nmem-grd        # you can give your job a name for easier identification (same as -J)
 #SBATCH --account=devolab
 
 ########## Command Lines to Run ##########
@@ -15,7 +15,7 @@ EXAMPLES_DIR=/mnt/home/lalejini/devo_ws/gp-tag-accessed-memory/data/prog-synth-e
 
 ##################################
 # Setup random seed info
-PROBLEM_SEED_OFFSET=4000
+PROBLEM_SEED_OFFSET=3000
 SEED=$((SLURM_ARRAY_TASK_ID + PROBLEM_SEED_OFFSET))
 
 ##################################
@@ -27,19 +27,18 @@ GENERATIONS=300
 
 MUT_RATE_5=5
 MUT_RATE_1=1
+MUT_RATE_01=01
+MUT_RATE_001=001
+MUT_RATE_0001=0001
+MUT_RATE_00001=00001
 
 MUT_RATE_075=075
 MUT_RATE_05=05
 MUT_RATE_025=025
-MUT_RATE_01=01
 
 MUT_RATE_0075=0075
 MUT_RATE_005=005
 MUT_RATE_0025=0025
-MUT_RATE_001=001
-
-MUT_RATE_0001=0001
-MUT_RATE_00001=00001
 
 ##################################
 # A few utility variables
@@ -54,8 +53,8 @@ SNAPSHOT_INTERVAL=${GENERATIONS}
 SUMMARY_STATS_INTERVAL=100
 
 PROGRAM_ARGUMENTS_TYPE_SEARCH=0
-ARG_MODE_NAME=TAG_BF
-PROGRAM_ARGUMENT_MODE=${PROGRAM_ARGUMENT_MODE__TAG_ONLY}
+ARG_MODE_NAME=NUM
+PROGRAM_ARGUMENT_MODE=${PROGRAM_ARGUMENT_MODE__NUM_ONLY}
 
 PROG_POP_SIZE=500
 USE_MODULES=0
