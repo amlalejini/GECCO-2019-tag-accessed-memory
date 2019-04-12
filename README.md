@@ -35,7 +35,7 @@ We continue to expand the use of tags in GP by incorporating tag-based referenci
 into the memory model of a simple linear GP representation.
 In this study, memory comprises 16 statically tagged memory registers, and instructions
 use tag-based referencing to refer to positions in memory.
-Programs our simple representation are linear sequences of instructions, and each
+Programs in our simple representation are linear sequences of instructions, and each
 instruction has three tag-based arguments, which may modify the instruction's
 behavior. Below, we provide a visual example, contrasting traditional direct-indexed
 memory access and tag-based memory access.
@@ -76,8 +76,8 @@ setting the second register to the terminal value '2', multiplying the input by
 
 - Experiment configuration and GP system details: [./docs/gp-system.md](./docs/gp-system.md)
 - Data analysis: Our analyses were done in R (R Core Team, 2016).
-    - Find a webpage (generated with R markdown) here: [http://lalejini.com/GECCO-2019-tag-accessed-memory/analysis/tag-mem-analysis.html](http://lalejini.com/GECCO-2019-tag-accessed-memory/analysis/tag-mem-analysis.html)
-    - Or, the Rmd file is here: [./analysis/tag-mem-analysis.Rmd](./analysis/tag-mem-analysis.Rmd)
+  - Find a webpage (generated with R markdown) here: [http://lalejini.com/GECCO-2019-tag-accessed-memory/analysis/tag-mem-analysis.html](http://lalejini.com/GECCO-2019-tag-accessed-memory/analysis/tag-mem-analysis.html)
+  - Or, the Rmd file is here: [./analysis/tag-mem-analysis.Rmd](./analysis/tag-mem-analysis.Rmd)
 
 ## References
 
