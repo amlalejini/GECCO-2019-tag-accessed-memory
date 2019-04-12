@@ -2,7 +2,7 @@
 
 Here, we provide a more detailed description of the linear GP system we used in this work. This document also reports configuration details used in this work. Our exact configuration files along with experiment source code can be found in our online GitHub repository: [https://github.com/amlalejini/GECCO-2019-tag-accessed-memory](https://github.com/amlalejini/GECCO-2019-tag-accessed-memory).
 
-**Contents**
+## Contents
 
 - [GP Representation](#gp-representation)
     - [Programs](#programs)
@@ -56,11 +56,8 @@ Many traditional GP systems that give genetic programs access to memory (_e.g._,
 - Register 14: 0011110011000011
 - Register 15: 1001011001101001
 
-
 Each program instruction has three _tag_ arguments (_i.e._, each instruction argument is a length-16 bit string). Tag-based instruction arguments reference the memory position with the closest matching tag; as such, argument tags need not _exactly_ match any of the tags with memory
 positions.
-
-In this work, we mutated all tag arguments at a per-bit rate (of 0.005). The tags on memory registers never changed.
 
 ### Direct-indexed Memory
 
@@ -192,9 +189,9 @@ Here, we discuss only the configuration details for the experiments reported in 
 
 We used the lexicase parent selection algorithm to solve five problems from Helmuth and Spector's general program synthesis benchmark suite (Helmuth and Spector, 2015):  number IO, smallest, median, grade, and for loop index. We used identical training and testing sets as in (Helmuth and Spector, 2015). Refer to (Helmuth and Spector, 2015) for more details about these problems.
 
-For each problem, we evolved 200 replicate populations of 512 individuals. In all but the number IO problem, we evolved programs for 300 generations. Because number IO is substantially easier than each of the other problems (Helmuth and Spector, 2015), we only evolved these programs for 100 generations.
+For each problem, we evolved 50 replicate populations of 500 individuals at a range of mutation rate conditions. In all but the number IO problem, we evolved programs for 500 generations. Because number IO is substantially easier than each of the other problems (Helmuth and Spector, 2015), we only evolved these programs for 100 generations.
 
-We propagated programs asexually and applied mutations to offspring. We applied single-instruction insertions, deletions, and substitutions at a per-instruction rate of 0.005 each and multi-instruction sequence duplications and deletions at a per-program rate of 0.05. We mutated tag-based arguments at a per-bit rate of 0.005 and numeric arguments at a per-argument rate of 0.005.
+We propagated programs asexually and applied mutations to offspring. We applied single-instruction insertions, deletions, and substitutions at a per-instruction rate of 0.005 each and multi-instruction sequence duplications and deletions at a per-program rate of 0.05. Because the relative performance of these two techniques depends heavily on the chosen mutation operations and rates, we used a wide range of argument (numeric and tag) mutation rates for each technique. We mutated tag-based arguments at the following per-bit rates: 0.0001, 0.001, 0.0025, 0.005, 0.0075, 0.01, 0.025, 0.05, 0.075, and 0.1. We mutated numeric arguments at the following per-argument rates: 0.0001, 0.001, 0.0025, 0.005, 0.0075, 0.01, 0.025, 0.05, 0.075, and 0.1.
 
 Each problem is defined by a set of test cases in which programs are given specified input data and are scored on how close their output is to the correct output; depending on the problem, we measured scores either on a gradient or on a binary pass-fail basis. During an evaluation, we limited the total number of instructions a program could execute; this limit varied by problem.  Programs were not required to stop on their own as long as they output their results before reaching their execution limit.
 
@@ -212,28 +209,28 @@ Below we give the configuration details specific to each problem.
 - Maximum allowed program length: 128
 - Maximum number of instruction-execution steps: 256
 - Test scores were measured on a gradient, using the Levenshtein distance between the program's output and the correct output sequence.
-- Generations: 300
+- Generations: 500
 
 ### Configuration Details - Grade
 
 - Maximum allowed program length: 128
 - Maximum number of instruction-execution steps: 128
 - Test scores were measured on a pass/fail basis.
-- Generations: 300
+- Generations: 500
 
 ### Configuration Details - Median
 
 - Maximum allowed program length: 64
 - Maximum number of instruction-execution steps: 64
 - Test scores were measured on a pass/fail basis.
-- Generations: 300
+- Generations: 500
 
 ### Configuration Details - Smallest
 
 - Maximum allowed program length: 64
 - Maximum number of instruction-execution steps: 64
 - Test scores were measured on a pass/fail basis.
-- Generations: 300
+- Generations: 500
 
 ## References
 
