@@ -122,8 +122,8 @@ for (cproblem in problems) {
   cat("### Problem: ", cproblem, "\n")
   # Compare highest-performing of each arg type.
   prob_data <- filter(u500_summary, problem==cproblem)
-  max_success_num <- max(filter(prob_data, arg_type=="Numeric")$solutions_found)
-  max_success_tag <- max(filter(prob_data, arg_type=="Tag")$solutions_found)
+  max_success_num <- max(filter(prob_data, arg_type=="Numeric Arguments")$solutions_found)
+  max_success_tag <- max(filter(prob_data, arg_type=="Tag-based Arguments")$solutions_found)
   contingency_table <- matrix(data=c(c(max_success_num, max_success_tag), c(replicates - max_success_num, replicates - max_success_tag)), nrow=2)
   rownames(contingency_table) <- c("Numeric Args", "Tag Args")
   colnames(contingency_table) <- c("Successful Runs", "Failed Runs")
