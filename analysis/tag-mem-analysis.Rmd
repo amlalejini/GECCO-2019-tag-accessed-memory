@@ -32,6 +32,9 @@ library(ggplot2)  # (Wickham, 2009)
 library(plyr)     # (Wickham, 2011)
 library(dplyr)    # (Wickham et al., 2018)
 library(cowplot)  # (Wilke, 2018)
+library(RColorBrewer)
+
+theme_set(theme_cowplot())
 ```
 
 ## Data Loading
@@ -39,10 +42,10 @@ library(cowplot)  # (Wilke, 2018)
 Set path information (for both preliminary data and for final experiment data).
 ```{r}
 prelim_u300_summary_loc <-
-  "../data/prelim/min_programs__update_300__solutions_summary.csv"
+  "data/prelim/min_programs__update_300__solutions_summary.csv"
 
 u500_summary_loc <-
-  "../data/sweep/min_programs__update_500__solutions_summary.csv"
+  "data/sweep/min_programs__update_500__solutions_summary.csv"
 
 ```
 
@@ -100,11 +103,17 @@ As before, for each problem we looked at the proportion of runs (**50 replicates
 
 ```{r, echo=FALSE, warning=FALSE}
 ggplot(data = u500_summary, mapping=aes(x=arg_mut_rate, y=solutions_found, fill=arg_mut_rate)) +
-    geom_bar(stat="identity") + xlab("Argument Mutation Rate") + ylab("Successful Runs") +
+    geom_bar(stat="identity", color="black") +
+    xlab("Argument Mutation Rate") +
+    ylab("Successful Runs") +
+    scale_fill_brewer(palette="RdYlBu", direction=-1) +
     guides(fill=FALSE) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylim(0, 55) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    ylim(0, 55) +
     geom_text(aes(label=solutions_found), nudge_y=3.5) +
-    facet_grid(problem ~ arg_type) + ggsave("singletype-perf.png", dpi=600)
+    theme(plot.background = element_rect(fill = "#EEEEEE")) +
+    facet_grid(problem ~ arg_type) +
+    ggsave("singletype-perf-grey.pdf", dpi=600)
 ```
 
 ### Statistical Analysis
